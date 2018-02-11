@@ -268,6 +268,10 @@
       <Project>{3ad926f8-7974-47c0-98ef-f8d54d28358c}</Project>
       <Name>WebDemo.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebDemo.ViewModels\WebDemo.ViewModels.csproj">
+      <Project>{f6bfc3bf-3124-4856-823a-8e6ba89f36dd}</Project>
+      <Name>WebDemo.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using WebDemo.Services;
 
 namespace WebDemo
 {
@@ -30,10 +31,11 @@ namespace WebDemo
             builder.RegisterFilterProvider();
 
 
-
             builder.RegisterAssemblyTypes(assemblies)
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterModule<ServiceModule>();
 
             builder.RegisterAssemblyTypes(Assembly.Load("WebDemo.Services"))
                 .AsImplementedInterfaces()
