@@ -4,36 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebDemo.Services;
 
 namespace WebDemo.Controllers
 {
+    [RoutePrefix("api/World")]
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        private readonly IUserService _userService;
+
+        public ValuesController(IUserService userService)
         {
-            return new string[] { "value1", "value2" };
+            _userService = userService;
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        [Route("Hello"), HttpGet]
+        public IHttpActionResult Get()
         {
-            return "value";
+            return Ok(_userService.GetUser());
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }
     }
 }
